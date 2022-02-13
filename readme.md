@@ -1,0 +1,9 @@
+### CRUD PYTHON MYSQL 
+
+**Operaciones**:
+
+- CREAR
+- ELIMINAR
+- ACTUALIZAR
+- LEER
+
