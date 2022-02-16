@@ -80,3 +80,4 @@ class DAO():
                 for i in cursor.fetchall():
                     print("La edad de {} es {}".format(i[0], str(i[1])))
             except ProgrammingError as err:
+                print(err)
