@@ -65,3 +65,14 @@ class DAO():
                 print("¡Alumno eliminado!\n")
             except Error as ex:
                 print("Error al intentar la conexión: {0}".format(ex))
+                
+     def calcularEdad(self, idAlumno):
+        if self.conexion.is_connected():
+            try:
+                cursor = self.conexion.cursor()
+                sql = "SELECT nombre, TIMESTAMPDIFF(YEAR, fechaNac, CURDATE()) AS edad FROM `curso` WHERE `curso`.`ID` = ?;"
+                result = cursor.execute(sql, int(idAlumno))
+                print(result)
+
+            except Error as err:
+                print("Error en la conexión", err)
