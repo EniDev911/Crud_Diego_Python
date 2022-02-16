@@ -1,20 +1,25 @@
-import mysql.connector as mysql 
+import mysql.connector
+from dotenv import load_dotenv
+import os 
+
+dotenv_values = load_dotenv('BD/.env')
+print(os.getenv("DBHOST"))
 
 try:
-	con = mysql.connect(
-			user = 'root',
-			passwd = 'enidev911',
-			port= 3306,
-			db = 'inventario_python')
+	cnx = mysql.connector.connect(
+			host = os.getenv("DBHOST"),
+			user = os.getenv("DBUSER"),
+			password = os.getenv("DBPASS"),
+			db = os.getenv("DBDATABASE")
+			)
 
-	cursor = con.cursor()
-	sql = 'DESCRIBE curso;'
-	result = cursor.execute(sql)
-	print(result)
-	print(con.is_connected())
+	cursor = cnx.cursor()
+	sql = 'SELECT * FROM curso;'
+	cursor.execute(sql)
+	for x in cursor:
+		print(x)
 
-except mysql.Error as err:
+except mysql.connector.Error as err:
 	print(err)
 
-finally:
-	con.close()
+

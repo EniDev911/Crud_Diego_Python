@@ -1,4 +1,4 @@
-### CRUD PYTHON MYSQL 
+### CRUD PYTHON MYSQL
 
 **Operaciones**:
 

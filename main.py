@@ -1,7 +1,9 @@
 from BD.conexion import DAO
 import BD.funciones
 import mysql.connector
+from dotenv import load_dotenv
 
+dotenv_values = load_dotenv('BD/.env')
 
 def menuPrincipal():
     continuar = True
@@ -13,14 +15,15 @@ def menuPrincipal():
             print("|           2.- Registrar Estudiantes                  |")
             print("|           3.- Promedio Final                         |")
             print("|           4.- Actualizar Estudiantes                 |")
-            print("|           5.- Eliminar Estudiantes                   |")
-            print("|           6.- Salir                                  |")
+            print("|           5.- Calcular Edad                          |")
+            print("|           6.- Eliminar Estudiantes                   |")
+            print("|           7.- Salir                                  |")
             print("========================================================\n")
             opcion = int(input("Seleccione una opción: "))
 
-            if opcion < 1 or opcion > 6:
+            if opcion < 1 or opcion > 7:
                 print("Opción incorrecta, ingrese nuevamente...")
-            elif opcion == 6:
+            elif opcion == 7:
                 continuar = False
                 print("¡Gracias por usar este sistema!")
                 break
@@ -40,6 +43,7 @@ def ejecutarOpcion(opcion):
                 print("No se encontraron Alumnos...")
         except:
             print("Ocurrió un error...")
+
     elif opcion == 2:
         curso = BD.funciones.pedirDatosRegistro()
         try:
@@ -65,7 +69,14 @@ def ejecutarOpcion(opcion):
         except mysql.connector.Error as err:
 
             print("Ocurrió un error...", err)
+
     elif opcion == 5:
+        cursos = dao.listarCursos()
+        if len(cursos) > 0:
+            ID = int(input("Ingrese ID: "))
+            mostrar_edad = dao.calcularEdad(ID)
+
+    elif opcion == 6:
         try:
             cursos = dao.listarCursos()
             if len(cursos) > 0:

@@ -11,25 +11,20 @@ def listarCursos(cursos):
 def pedirDatosRegistro():
     
     ID = int(input("Ingrese ID: "))
-
     nombre = input("Ingrese nombre: ")
-
     ApellidoP = input("Ingrese su apellido paterno: ")
-
     ApellidoM = input("Ingrese su apellido materno: ")
-
+    FechaNac = input("Ingrese fecha de nacimiento ejemplo(1990-11-05): ")
     nota_1 = int(input("Ingrese la primera nota: "))
-
     nota_2 = int(input("Ingrese la segunda nota: "))
-
     nota_3 = int(input("Ingrese la tercera nota: "))
-
     nota_4 = int(input("Ingrese la cuarta nota: "))
 
-    curso = (ID, nombre, ApellidoP, ApellidoM, nota_1, nota_2, nota_3, nota_4)
+    curso = (ID, nombre, ApellidoP, ApellidoM, FechaNac, nota_1, nota_2, nota_3, nota_4)
     return curso
 
 def pedirDatosActualizacion(cursos):
+
     listarCursos(cursos)
     existeID = False
     EditarID = int(input("Ingrese el ID del curso a editar: "))
@@ -43,6 +38,8 @@ def pedirDatosActualizacion(cursos):
         ApellidoP = input("Ingrese el apellido paterno a modificar: ")
 
         ApellidoM = input("Ingrese el apellido materno a modificar: ")
+        
+        FechaNac = input("Nueva fecha de nacimiento ejemplo(1990-11-05): ")
 
         nota_1 = int(input("Ingrese la primera nota: "))
 
@@ -84,5 +81,7 @@ def calcularPromedio(cursos):
             total_notas = alumno[4] + alumno[5] + alumno[6] + alumno [7]
             promedio_final = total_notas/4
             print("Promedio final de {} es {}".format(alumno[1], promedio_final))
+
+
 
     
