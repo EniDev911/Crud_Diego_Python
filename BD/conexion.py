@@ -4,7 +4,7 @@ from mysql.connector import ProgrammingError
 from dotenv import load_dotenv
 import os 
 
-dotenv_value = load_dotenv('./.env')
+dotenv_value = load_dotenv()
 
 class DAO():
 
@@ -21,6 +21,7 @@ class DAO():
         except Error as ex:
             print("Error al intentar la conexión: {0}".format(ex))
 
+        
     def listarCursos(self):
         if self.conexion.is_connected():
             try:
