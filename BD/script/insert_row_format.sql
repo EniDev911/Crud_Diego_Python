@@ -1,4 +1,30 @@
 INSERT INTO `curso` 
 (`ID`, `nombre`, `apellidoP`, `apellidoM`, `fechaNac`, `nota_1`, `nota_2`, `nota_3`, `nota_4`) 
-VALUES 
-('123456', 'marco', 'contreras', 'herrera', '2014-11-05', '5', '5', '6', '6')
+VALUES
+	(123456, 
+	'marco', 
+	'contreras', 
+	'herrera', 
+	'2014-11-05',
+	5,
+	5,
+	6,
+	6),
+	(654321, 
+	'pedro', 
+	'vivanco', 
+	'peréz', 
+	'1964-12-25', 
+	2, 
+	5, 
+	4, 
+	5),
+	(112233, 
+	'diego', 
+	'contreras', 
+	'aguilera', 
+	'2009-01-22', 
+	7, 
+	5, 
+	4, 
+	6);

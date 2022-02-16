@@ -10,7 +10,6 @@ class DAO():
 
     def __init__(self):
         try:
-            print(os.getenv("DBHOST"))
             self.conexion = mysql.connector.connect(
             host = os.getenv("DBHOST"),
             user = os.getenv("DBUSER"),
