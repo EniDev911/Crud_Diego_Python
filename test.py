@@ -1,3 +1,4 @@
+
 import mysql.connector
 from dotenv import load_dotenv
 import os 
@@ -21,5 +22,3 @@ try:
 
 except mysql.connector.Error as err:
 	print(err)
-
-

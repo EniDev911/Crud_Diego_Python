@@ -55,6 +55,7 @@ def ejecutarOpcion(opcion):
     elif opcion == 3:
         cursos = dao.listarCursos()
         BD.funciones.calcularPromedio(cursos)
+
     elif opcion == 4:
         try:
             cursos = dao.listarCursos()
@@ -72,9 +73,16 @@ def ejecutarOpcion(opcion):
 
     elif opcion == 5:
         cursos = dao.listarCursos()
+
         if len(cursos) > 0:
-            ID = int(input("Ingrese ID: "))
-            mostrar_edad = dao.calcularEdad(ID)
+            ID = BD.funciones.pedirIdEdad(cursos)
+            edad = dao.traerEdad(ID)
+            #print(edad)
+
+
+        #    if edad = BD.funciones.mostrarEdad(edades_alumnos):
+
+
 
     elif opcion == 6:
         try:

@@ -82,6 +82,14 @@ def calcularPromedio(cursos):
             promedio_final = total_notas/4
             print("Promedio final de {} es {}".format(alumno[1], promedio_final))
 
+def pedirIdEdad(cursos):
+    listarCursos(cursos)
+    ID = int(input("Ingrese ID: "))
+    for alumno in cursos:
+        if  ID == alumno[0]:
+            print("Calculando edad de {}".format(alumno[1]))
+    return ID
+
 
 
     

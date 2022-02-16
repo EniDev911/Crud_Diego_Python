@@ -21,9 +21,6 @@ class DAO():
         except Error as ex:
             print("Error al intentar la conexión: {0}".format(ex))
 
-        #finally:
-         #   self.conexion.close()
-
     def listarCursos(self):
         if self.conexion.is_connected():
             try:
@@ -72,13 +69,14 @@ class DAO():
             except Error as ex:
                 print("Error al intentar la conexión: {0}".format(ex))
 
-    def calcularEdad(self, idAlumno):
+    def traerEdad(self, IDalumno):
+
         if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                sql = "SELECT nombre, TIMESTAMPDIFF(YEAR, fechaNac, CURDATE()) AS edad FROM `curso` WHERE `curso`.`ID` = ?;"
-                result = cursor.execute(sql, int(idAlumno))
-                print(result)
-
-            except Error as err:
+                sql = "SELECT `nombre`, TIMESTAMPDIFF(YEAR, `fechaNac`, CURDATE()) FROM `curso` WHERE `ID` = '{0}'"
+                cursor.execute(sql.format(IDalumno))
+                for i in cursor.fetchall():
+                    print("La edad de {} es {}".format(i[0], str(i[1])))
+            except ProgrammingError as err:
                 print("Error en la conexión", err)
